@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+    .bg1{
+        background:url="image\adult-analogue-indoors-2249290.jpg";
+    }
+    
+    
+    
+    </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +17,8 @@
     <?php include('includes.php') ?>
 </head>
 
+
+
 <body>
     <!-- ADD HEADER -->
     <?php include('header.php') ?>
@@ -17,10 +26,10 @@
     <!-- banner -->
     <section class="banner_w3lspvt" id="home">
         <div class="csslider infinity" id="slider1">
-            <input type="radio" name="slides" checked="checked" id="slides_1" />
+            <input type="radio" name="slides" checked="checked" id="slides_1"  />
             <input type="radio" name="slides" id="slides_2" />
             <input type="radio" name="slides" id="slides_3" />
-
+            <!-- <img src="image\adult-analogue-indoors-2249290.jpg">  -->
             <ul class="banner_slide_bg">
                 <li>
                     <div class="slider-info bg1">
@@ -31,6 +40,7 @@
                                     <h2 class="movetxt agile-title text-capitalize">You Either Know Fashion </h2>
                                     <h2 class="movetxt mb-3 agile-title text-capitalize">Or You Dont</h2>
                                     <a href="#gallery" class="btn"> See Our Gallery </a>
+                                      
                                 </div>
                             </div>
                         </div>
