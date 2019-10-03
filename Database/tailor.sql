@@ -1,68 +1,72 @@
-DROP DATABASE IF EXISTS tailor;
-CREATE DATABASE IF NOT EXISTS tailor;
-USE tailor;
+DROP database IF exists tailor;
+CREATE DATABASE if not exists Tailor;
+USE Tailor;
 
-CREATE TABLE IF NOT EXISTS user (
-	user_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    fname VARCHAR(20) NOT NULL,
-    lname VARCHAR(20) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL,
-    gender VARCHAR(10) NOT NULL,
-    ip_address VARCHAR(20) NOT NULL,
-    create_date DATE NOT NULL,
-    last_login DATE,
-    last_password VARCHAR(50)
+CREATE TABLE IF NOT EXISTS USER (
+    USER_ID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    FIRST_NAME VARCHAR(50) NOT NULL,
+    LAST_NAME VARCHAR(50) NOT NULL,
+    E_MAIL VARCHAR(50) NOT NULL,
+    PASSWORD VARCHAR(50) NOT NULL,
+    GENDER VARCHAR(10) NOT NULL,
+    IPADDRESS INT,
+    CREATEDATE DATETIME,
+    LASTLOGIN VARCHAR(50),
+    LASTPASSWORD VARCHAR(50),
+    USER_TYPE VARCHAR(50)
 );
-
-CREATE TABLE IF NOT EXISTS style (
-	style_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    style_code VARCHAR(10) NOT NULL,
-    style_name VARCHAR(50) NOT NULL,
-    style_price FLOAT NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS design (
-	design_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    design_code VARCHAR(10) NOT NULL,
+ 
+CREATE TABLE IF NOT EXISTS Design (
+    Design_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    Design_code INT NOT NULL,
     design_name VARCHAR(50) NOT NULL,
-    design_price FLOAT NOT NULL
+    design_price INT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Suit (
+    Suit_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    Suit_code VARCHAR(20) NOT NULL,
+    Suit_name VARCHAR(50) NOT NULL,
+    Suit_price INT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Style (
+    Style_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    Style_code INT NOT NULL,
+    Style_name VARCHAR(50) NOT NULL,
+    Style_price INT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Cloth (
+    Cloth_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    Cloth_code INT NOT NULL,
+    Cloth_name VARCHAR(50) NOT NULL,
+    Cloth_price INT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS cloth (
-	cloth_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    cloth_code VARCHAR(10) NOT NULL,
-    cloth_name VARCHAR(50) NOT NULL,
-    cloth_price FLOAT NOT NULL
+CREATE TABLE IF NOT EXISTS ORDERS (
+    ORDER_ID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    ORDERS_STATUS VARCHAR(50) NOT NULL,
+    FULL_LENGTH FLOAT,
+    ARM_LENGTH FLOAT,
+    WAIST FLOAT,
+    THIGH FLOAT,
+    COLLAR_SIZE FLOAT,
+    SHOULDER FLOAT,
+    CHEST FLOAT,
+    STOMACH FLOAT,
+    TOTAL_PRICE FLOAT NOT NULL,
+    fk_USER_ID INT,
+    fk_Style_id INT,
+    fk_Cloth_id INT,
+    fk_Design_id INT,
+    fk_Suit_id INT,
+    FOREIGN KEY (fk_USER_ID)
+        REFERENCES USER (USER_ID),
+    FOREIGN KEY (fk_Style_id)
+        REFERENCES Style (Style_id),
+    FOREIGN KEY (fk_Cloth_id)
+        REFERENCES Cloth (Cloth_id),
+    FOREIGN KEY (fk_Design_id)
+        REFERENCES Design (Design_id),
+    FOREIGN KEY (fk_Suit_id)
+        REFERENCES Suit (Suit_id)
 );
-
-CREATE TABLE IF NOT EXISTS suit (
-	suit_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    suit_code VARCHAR(10) NOT NULL,
-    suit_name VARCHAR(50) NOT NULL,
-    suit_price FLOAT NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS orders (
-	order_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    order_status VARCHAR(20) NOT NULL,
-    full_length FLOAT,
-    arm_length FLOAT,
-    waist FLOAT,
-    thigh FLOAT,
-    collar_size FLOAT,
-    shoulder FLOAT,
-    chest FLOAT,
-    stomach FLOAT,
-    total_price FLOAT,
-	user_id INT,
-	style_id INT,
-	design_id INT,
-	cloth_id INT,
-	suit_id INT,
-	FOREIGN KEY (user_id) REFERENCES user(user_id),
-	FOREIGN KEY (style_id) REFERENCES style(style_id),
-	FOREIGN KEY (design_id) REFERENCES design(design_id),
-	FOREIGN KEY (cloth_id) REFERENCES cloth(cloth_id),
-	FOREIGN KEY (suit_id) REFERENCES suit(suit_id)
-);
+ 
