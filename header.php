@@ -16,7 +16,7 @@
         margin: 0;
         font-size: 100%;
         background: #fff;
-        font-family: 'Catamaran', sans-serif;
+        font-family: 'poppins', sans-serif;
     }
 
     html {
@@ -30,7 +30,7 @@
         -moz-transition: 0.5s all;
         -o-transition: 0.5s all;
         -ms-transition: 0.5s all;
-        font-family: 'Catamaran', sans-serif;
+        font-family: 'poppins', sans-serif;
     }
 
     body img {
