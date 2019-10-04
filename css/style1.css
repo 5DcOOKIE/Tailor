@@ -1,0 +1,841 @@
+    /*-------------------------------------Intro Section--------------------------------------------------*/
+    #intro .carousel-item {
+        width: 100%;
+        height: 100vh;
+    }
+
+    /* for slider shading*/
+    #intro .carousel-item::before {
+        content: '';
+        background-color: rgba(0, 0, 0, 0.6);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
+
+    /*for text alignment*/
+    #intro .carousel-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    /*for text alignment*/
+    #intro .carousel-content {
+        text-align: center;
+    }
+
+    /* for slider heading*/
+    #intro h2 {
+        color: #17a2b8;
+        margin-bottom: 30px;
+        font-size: 35px;
+        font-weight: 700;
+    }
+
+    /* for slider paragraph*/
+    #intro p {
+        width: 43%;
+        margin: 0 auto 30px auto;
+        color: #ced4da;
+        text-align: center;
+    }
+
+    /*for internet search?*/
+    #intro .carousel-fade .carousel-inner .carousel-item {
+        -webkit-transition-property: opacity;
+        transition-property: opacity;
+    }
+
+
+    /*for internet search?*/
+    #intro .carousel-fade .carousel-inner .carousel-item,
+    #intro .carousel-fade .carousel-inner .active.carousel-item-left,
+    #intro .carousel-fade .carousel-inner .active.carousel-item-right {
+        opacity: 0;
+    }
+
+
+    /*for silder active image*/
+    #intro .carousel-fade .carousel-inner .active,
+    #intro .carousel-fade .carousel-inner .carousel-item-next.carousel-item-left,
+    #intro .carousel-fade .carousel-inner .carousel-item-prev.carousel-item-right {
+        opacity: 1;
+
+    }
+
+
+    /*For internet search??*/
+    #intro .carousel-fade .carousel-inner .carousel-item-next,
+    #intro .carousel-fade .carousel-inner .carousel-item-prev,
+    #intro .carousel-fade .carousel-inner .active.carousel-item-left,
+    #intro .carousel-fade .carousel-inner .active.carousel-item-right {
+        left: 0;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+
+    @media (min-width: 1024px) {
+
+        /*for silder previuos,next arrow position*/
+        #intro .carousel-control-prev,
+        #intro .carousel-control-next {
+            width: 10%;
+        }
+    }
+
+    /*for silder next arrow*/
+    #intro .carousel-control-next-icon {
+        background: none;
+        font-size: 32px;
+        line-height: 1;
+    }
+
+    /*for silder previous arrow*/
+    #intro .carousel-control-prev-icon {
+        background: none;
+        font-size: 32px;
+        line-height: 1;
+    }
+
+    #intro .carousel-indicators li {
+
+        cursor: pointer;
+
+    }
+
+    /*intro signin/signup button properties*/
+    #intro .btn-get-started {
+
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 8px 32px;
+        border-radius: 50px;
+        margin: 10px;
+        color: #fff;
+        background: #17a2b8;
+    }
+
+    /*intro signin/signup hover properties*/
+    #intro .btn-get-started:hover {
+        background: #fff;
+        color: #17a2b8;
+        font-weight: 500;
+    }
+
+    /*--------------------------------------Intro Section--------------------------------------------------*/
+
+    html,
+    body {
+        margin: 0;
+        font-size: 100%;
+        background: #fff;
+        font-family: 'poppins', sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    body img {
+        max-width: 100%;
+    }
+
+    /*-- header --*/
+    a.navbar-brand {
+        font-size: .75em;
+        color: #fff;
+        padding: 0;
+        font-weight: 600;
+        margin: 0;
+        letter-spacing: 1px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+        position: relative;
+    }
+
+    .header-agile {
+        width: 8%;
+    }
+
+    .social ul li {
+        margin: 0px;
+        display: inline-block;
+    }
+
+    .social ul li a {
+        font-weight: 400;
+        text-transform: capitalize;
+        color: #ddd;
+        letter-spacing: 1px;
+        font-size: 15px;
+        position: relative;
+        padding: 0 0.1rem;
+    }
+
+    .social.social-invisible {
+        display: none;
+    }
+
+    /*-- //header --*/
+
+    /* header */
+    /* CSS Document */
+    header {
+        position: absolute;
+        z-index: 9;
+        width: 100%;
+        padding: 1rem 0;
+        background: rgba(44, 39, 39, 0.7);
+    }
+
+    .toggle,
+    [id^=drop] {
+        display: none;
+    }
+
+    /* Giving a background-color to the nav container. */
+    nav {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Since we'll have the "ul li" "float:left"
+* we need to add a clear after the container. */
+
+    nav:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Removing padding, margin and "list-style" from the "ul",
+* and adding "position:reltive" */
+    nav ul {
+        float: right;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        position: relative;
+    }
+
+    /* Positioning the navigation items inline */
+    nav ul li {
+        margin: 0px;
+        display: inline-block;
+        float: left;
+    }
+
+    /* Styling the links */
+    nav a {
+        font-weight: 400;
+        text-transform: capitalize;
+        color: #eee;
+        letter-spacing: 1px;
+        font-size: 16px;
+        position: relative;
+        padding: 0.2rem;
+    }
+
+
+    nav ul li ul li:hover {
+        background: #f8f9fa;
+    }
+
+    /* Background color change on Hover */
+    nav a:hover {
+        color: #ddd;
+        background: transparent;
+    }
+
+    .menu li.active a {
+        color: #eee;
+        background: transparent;
+    }
+
+    /* Hide Dropdowns by Default
+    * and giving it a position of absolute */
+    nav ul ul {
+        display: none;
+        position: absolute;
+        /* has to be the same number as the "line-height" of "nav a" */
+        top: 25px;
+        background: #fff;
+        padding: 10px;
+    }
+
+    ul.inner-dropdown a:hover {
+        color: #333;
+    }
+
+    /* Display Dropdowns on Hover */
+    nav ul li:hover>ul {
+        display: inherit;
+    }
+
+    /* Fisrt Tier Dropdown */
+    nav ul ul li {
+        width: 160px;
+        float: none;
+        display: list-item;
+        position: relative;
+    }
+
+    nav ul ul li a {
+        color: #333;
+        padding: 5px 10px;
+        display: block;
+    }
+
+    /* Second, Third and more Tiers	
+    * We move the 2nd and 3rd etc tier dropdowns to the left
+    * by the amount of the width of the first tier.
+    */
+    nav ul ul ul li {
+        position: relative;
+        top: -60px;
+        /* has to be the same number as the "width" of "nav ul ul li" */
+        left: 170px;
+    }
+
+    /* Change ' +' in order to change the Dropdown symbol */
+    li>a:only-child:after {
+        content: '';
+    }
+
+    @media all and (max-width : 991px) {
+
+        #logo {
+            display: block;
+            padding: 0;
+            width: 100%;
+            text-align: center;
+            float: none;
+        }
+
+        nav {
+            margin: 0;
+        }
+
+        .header-agile {
+            float: left;
+        }
+
+        nav ul {
+            width: 100%;
+        }
+
+        /* Hide the navigation menu by default */
+        /* Also hide the  */
+        .toggle+a,
+        .menu {
+            display: none;
+        }
+
+        /* Stylinf the toggle lable */
+        .toggle {
+            display: block;
+            padding: 4px 18px;
+            font-size: 20px;
+            text-decoration: none;
+            border: none;
+            float: right;
+            background-color: #00bbd1;
+            color: #fff;
+        }
+
+        .menu .toggle {
+            float: none;
+            text-align: center;
+            margin: auto;
+            width: 25%;
+            padding: 5px;
+            font-weight: normal;
+            font-size: 15px;
+            letter-spacing: 1px;
+            background: none;
+            color: #333;
+        }
+
+        .toggle:hover {
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Display Dropdown when clicked on Parent Lable */
+        [id^=drop]:checked+ul {
+            display: block;
+            background: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        /* Change menu item's width to 100% */
+        nav ul li {
+            display: block;
+            width: 100%;
+            padding: 5px 0;
+        }
+
+        nav ul ul .toggle,
+        nav ul ul a {
+            padding: 0 40px;
+        }
+
+        nav ul ul ul a {
+            padding: 0 80px;
+        }
+
+        nav a:hover,
+        nav ul ul ul a {
+            background-color: transparent;
+        }
+
+        nav ul li ul li .toggle,
+        nav ul ul a,
+        nav ul ul ul a {
+            padding: 14px 20px;
+            color: #FFF;
+            font-size: 17px;
+        }
+
+        /* Hide Dropdowns by Default */
+        nav ul ul {
+            float: none;
+            position: static;
+            color: #ffffff;
+            /* has to be the same number as the "line-height" of "nav a" */
+        }
+
+        /* Hide menus on hover */
+        nav ul ul li:hover>ul,
+        nav ul li:hover>ul {
+            display: none;
+        }
+
+        /* Fisrt Tier Dropdown */
+        nav ul ul li {
+            display: block;
+            width: 100%;
+            padding: 0;
+        }
+
+        nav ul ul ul li {
+            position: static;
+            /* has to be the same number as the "width" of "nav ul ul li" */
+        }
+
+        nav a {
+            color: #333;
+        }
+
+        nav a:hover {
+            color: #333;
+        }
+
+        .menu li.active a {
+            color: #333;
+        }
+
+        nav ul ul li a {
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        ul.inner-dropdown {
+            padding-bottom: 0 !important;
+            padding-top: 8px !important;
+        }
+    }
+
+    @media all and (max-width : 330px) {
+        nav ul li {
+            display: block;
+            width: 94%;
+        }
+    }
+    /*-- // header --*/
+
+    /*-- footer --*/
+    .footer-style-w3ls p {
+        font-size: 16px;
+    }
+
+    .footer-style-w3ls p a {
+        color: #707579;
+    }
+
+    ul.d-flex.header-agile li span {
+        margin-right: 1em;
+        color: #0cc5b7;
+    }
+
+    .footv4-left ul.v4-rel li {
+        display: block;
+        list-style-type: none;
+        margin-bottom: 10px;
+    }
+
+    ul.footer-link li {
+        display: inline-block;
+        line-height: 2;
+        margin-right: 1em;
+    }
+
+    ul.footer-link li a {
+        color: #666;
+        text-transform: capitalize;
+        font-size: 17px;
+        letter-spacing: 1px;
+    }
+
+    footer {
+        background: #000;
+    }
+
+    .copy-right p {
+        color: #444;
+    }
+
+    .copy-right p a {
+        color: #666;
+    }
+
+    .footer-logo a {
+        font-size: 32px;
+        color: #eee;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+    /*-- //footer --*/
+
+    /*-- move top --*/
+    a.move-top {
+        color: #fff;
+        font-size: 20px;
+        background: #ff3c41;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        letter-spacing: 2px;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+    /*--// move top --*/
+
+    /*-- Responsive design --*/
+    @media(max-width:1080px) {
+
+        .csslider>ul>li,
+        .bs-slider-overlay,
+        .csslider>ul>li,
+        .bs-slider-overlay1 {
+            min-height: 680px;
+        }
+
+        h4.agile-title,
+        h1.agile-title,
+        h2.agile-title {
+            font-size: 3.5em;
+        }
+
+        .banner-text {
+            padding-top: 24vw;
+        }
+
+        .about-padding {
+            padding: 2em 3em;
+        }
+
+        .about h4 {
+            font-size: 28px;
+        }
+
+        h3.heading {
+            font-size: 35px;
+            letter-spacing: 1px;
+        }
+
+        p.text-li {
+            font-size: 15px;
+        }
+
+        .bottom-gd-content h4 {
+            letter-spacing: 1px;
+            font-size: 22px;
+        }
+    }
+
+    @media(max-width:1024px) {
+
+        .csslider>ul>li,
+        .bs-slider-overlay,
+        .csslider>ul>li,
+        .bs-slider-overlay1 {
+            min-height: 650px;
+        }
+    }
+
+    @media(max-width:991px) {
+        .about-padding {
+            padding: 0em 1em;
+        }
+
+        .img-div {
+            margin: 4em 0;
+        }
+
+        .csslider>ul>li,
+        .bs-slider-overlay,
+        .csslider>ul>li,
+        .bs-slider-overlay1 {
+            min-height: 600px;
+        }
+
+        header {
+            padding: 0rem 0;
+        }
+
+        .social.social-invisible {
+            display: block;
+        }
+
+        .social {
+            display: none;
+        }
+
+        .header-agile {
+            width: auto;
+        }
+    }
+
+    @media(max-width:900px) {
+
+        h4.agile-title,
+        h1.agile-title,
+        h2.agile-title {
+            font-size: 3em;
+        }
+
+        .banner-text {
+            padding-top: 28vw;
+        }
+    }
+
+    @media(max-width:736px) {
+
+        h4.agile-title,
+        h1.agile-title,
+        h2.agile-title {
+            font-size: 2.6em;
+            letter-spacing: 1px;
+        }
+
+        .banner-text h5 {
+            letter-spacing: 4px;
+            font-size: 1.2em;
+        }
+
+        .csslider>ul>li,
+        .bs-slider-overlay,
+        .csslider>ul>li,
+        .bs-slider-overlay1 {
+            min-height: 550px;
+        }
+
+        .stats-grid-w3-agile .icon-right-w3ls {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .stats-grid-w3-agile span.fa {
+            font-size: 25px;
+            line-height: 60px;
+        }
+
+        .counter {
+            font-size: 34px;
+        }
+
+        .footer-logo a {
+            font-size: 28px;
+        }
+
+        .copy-right p {
+            font-size: 16px;
+        }
+    }
+
+    @media(max-width:667px) {
+        .img-div {
+            margin: 2em 0 0;
+        }
+
+        .position-img,
+        .position-img1 {
+            position: static;
+            margin: 2em 0;
+        }
+
+        .about h4 {
+            font-size: 25px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .csslider>ul>li,
+        .bs-slider-overlay,
+        .csslider>ul>li,
+        .bs-slider-overlay1 {
+            min-height: 500px;
+        }
+    }
+
+    @media(max-width:568px) {
+        h3.heading {
+            font-size: 30px;
+            letter-spacing: 1px;
+        }
+
+        h4.agile-title,
+        h1.agile-title,
+        h2.agile-title {
+            font-size: 2.2em;
+            letter-spacing: 1px;
+        }
+
+        .banner-text h5 {
+            letter-spacing: 3px;
+            font-size: 1em;
+        }
+
+        .csslider>ul>li,
+        .bs-slider-overlay,
+        .csslider>ul>li,
+        .bs-slider-overlay1 {
+            min-height: 450px;
+        }
+    }
+
+    @media(max-width:480px) {
+        .bottom-gd-content h4 {
+            font-size: 20px;
+        }
+
+        p {
+            line-height: 1.8;
+        }
+
+        .banner-text {
+            padding-top: 35vw;
+        }
+
+        .menu .toggle {
+            width: 30%;
+        }
+
+        ul.footer-link {
+            text-align: center;
+        }
+    }
+
+    @media(max-width:414px) {
+        .about h4 {
+            font-size: 23px;
+        }
+
+        .counter {
+            font-size: 30px;
+        }
+
+        h3.heading {
+            font-size: 27px;
+            letter-spacing: 0px;
+        }
+
+        .contact input[type="text"],
+        .contact input[type="email"],
+        .contact select,
+        .contact textarea {
+            font-size: 14px;
+        }
+
+        .contact button.btn {
+            font-size: 16px;
+            padding: 10px 35px;
+            letter-spacing: 1px;
+        }
+
+        h4.agile-title,
+        h1.agile-title,
+        h2.agile-title {
+            font-size: 2em;
+            letter-spacing: 1px;
+        }
+
+        .banner-text h5 {
+            letter-spacing: 2px;
+            font-size: .9em;
+        }
+
+        .banner-text {
+            padding-top: 45vw;
+        }
+
+        .menu .toggle {
+            width: 35%;
+        }
+    }
+
+    @media(max-width:384px) {
+
+        h4.agile-title,
+        h1.agile-title,
+        h2.agile-title {
+            font-size: 1.8em;
+            letter-spacing: 1px;
+        }
+
+        .banner-text {
+            padding-top: 50vw;
+        }
+
+        .banner-text a {
+            font-size: 15px;
+            margin-top: 10px;
+        }
+
+        .footer-logo a {
+            font-size: 25px;
+            letter-spacing: 0;
+        }
+
+        .popup {
+            margin: 8em 1em;
+        }
+    }
+/* ========================================================================== */

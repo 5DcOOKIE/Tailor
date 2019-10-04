@@ -42,7 +42,7 @@
 			
 			<!-- move top icon -->
 			<div class="text-center">
-				<a href="#home" class="move-top text-center"><span class="fa fa-angle-double-up" aria-hidden="true"></span></a>
+				<a href="#headerX" class="move-top text-center"><span class="fa fa-angle-double-up" aria-hidden="true"></span></a>
 			</div>
 			<!-- //move top icon -->
 			
