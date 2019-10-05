@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- INCLUDE LINKS AND SCRIPTS -->
-    <?php //include('includes.php') ?>
-</head>
-<body>
-    
+
 <!-- footer -->
 <footer class="footerv4-w3ls py-sm-5 py-4" id="footer">
 	<div class="footerv4-top">
@@ -16,7 +6,7 @@
 		
 			<!-- footer logo -->
 			<div class="footer-logo text-center">
-				<a href="home.php"><span class="fa fa-stumbleupon" aria-hidden="true"></span> i am  MR.Tailor </a>
+				<a href="home.php"><span class="fa fa-stumbleupon" aria-hidden="true"></span> i am Mr.Tailor </a>
 			</div>
 			<!-- //footer logo -->
 			
@@ -30,7 +20,7 @@
 						<a href="about.php">about Us</a>
 					</li>
 					<li>
-						<a href="#team">Team</a>
+						<a href="javascript:void(0);">Team</a>
 					</li>
 					<li>
 						<a href="#footer">Contact us</a>
@@ -49,7 +39,7 @@
 			<!-- copyright -->
 			<div class="copy-right text-center">
 				<p>© 2019 Stitch it!. All rights reserved |
-					<a href="https://petsaaltech.com">Made with <span style="font-size:100%;color:red;">&hearts;</span> in <i style="text-decoration: underline !important;">Petsaal Technologies</i></a>
+					Made with <span style="font-size:100%;color:red;">&hearts;</span> in <a href="https://petsaaltech.com"><i style="text-decoration: underline !important;">Petsaal Technologies</i></a>
 				</p>
 			</div>
 			<!-- //copyright -->
@@ -58,5 +48,3 @@
 	</div>
 </footer>
 <!-- //footer -->
-</body>
-</html>

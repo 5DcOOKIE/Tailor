@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    .bg1 {
-        background: url="image\adult-analogue-indoors-2249290.jpg";
-    }
-</style>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +16,7 @@
     <!--intro-->
     <section id="intro">
         <div class="intro-container">
-            <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
+            <div id="introCarousel" class="carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <!--slider starts-->
                     <div class="carousel-item active">
@@ -31,8 +25,8 @@
                             <div class="carousel-content">
                                 <h2>HEADING</h2>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore maiores itaque totam officiis voluptatem necessitatibus? Excepturi pariatur nihil ex ab perspiciatis incidunt ratione esse consequuntur veniam in, placeat, vero odit?</p>
-                                <a href="/Accounts/Login" class="btn-get-started scrollto">Login</a>
-                                <a href="/Accounts/Signup" class="btn-get-started scrollto">Sign Up</a>
+                                <a href="javascript:void(0);" class="btn-get-started scrollto">Login</a>
+                                <a href="javascript:void(0);" class="btn-get-started scrollto">Sign Up</a>
                             </div>
                         </div>
                     </div>
@@ -43,8 +37,8 @@
                             <div class="carousel-content">
                                 <h2>HEADING</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae molestias blanditiis voluptate non, aliquam odit amet repudiandae recusandae autem accusamus a officiis magni, quibusdam ipsam tempore at laboriosam fuga modi.</p>
-                                <a href="/Accounts/Login" class="btn-get-started scrollto">Login</a>
-                                <a href="/Accounts/Signup" class="btn-get-started scrollto">Sign Up</a>
+                                <a href="javascript:void(0);" class="btn-get-started scrollto">Login</a>
+                                <a href="javascript:void(0);" class="btn-get-started scrollto">Sign Up</a>
                             </div>
                         </div>
                     </div>
@@ -54,11 +48,9 @@
                         <div class="carousel-container">
                             <div class="carousel-content">
                                 <h2>HEADING</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nam fugiat illum cum, deserunt harum quidem at fugit repellendus quis tempora, cupiditate quod placeat incidunt facere delectus necessitatibus dolor commodi?
-                                </p>
-                                <a href="/Accounts/Login" class="btn-get-started scrollto">Login</a>
-                                <a href="/Accounts/Signup" class="btn-get-started scrollto">Sign Up</a>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui nam fugiat illum cum, deserunt harum quidem at fugit repellendus quis tempora, cupiditate quod placeat incidunt facere delectus necessitatibus dolor commodi?</p>
+                                <a href="javascript:void(0);" class="btn-get-started scrollto">Login</a>
+                                <a href="javascript:void(0);" class="btn-get-started scrollto">Sign Up</a>
                             </div>
                         </div>
                     </div>
@@ -68,11 +60,9 @@
                         <div class="carousel-container">
                             <div class="carousel-content">
                                 <h2>HEADING</h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae eaque fugiat enim amet, laudantium quo iusto explicabo nemo repudiandae ipsa voluptates magni obcaecati nobis eligendi voluptatum unde sint rerum! Consequuntur?
-                                </p>
-                                <a href="/Accounts/Login" class="btn-get-started scrollto">Login</a>
-                                <a href="/Accounts/Signup" class="btn-get-started scrollto">Sign Up</a>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae eaque fugiat enim amet, laudantium quo iusto explicabo nemo repudiandae ipsa voluptates magni obcaecati nobis eligendi voluptatum unde sint rerum! Consequuntur?</p>
+                                <a href="javascript:void(0);" class="btn-get-started scrollto">Login</a>
+                                <a href="javascript:void(0);" class="btn-get-started scrollto">Sign Up</a>
                             </div>
                         </div>
                     </div>
