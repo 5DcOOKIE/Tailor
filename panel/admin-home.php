@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    Home
+    <button type="button" onclick="showUsers()">Get User List</button>
 </body>
 
 </html>

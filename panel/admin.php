@@ -1,27 +1,27 @@
 <?php
-    $servername = "localhost";
-    $username = "admin";
-    $password = "_camelCase";
-    $dbname = "tailor";
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    } else {
-        echo '<script type="text/javascript">',
-            'console.log("Connected!")',
-            '</script>';
-    }
-    $sql = "INSERT INTO user(fname, lname, email, password, gender, create_date, last_login) VALUES ('Haseeb', 'Arshad', 'haseeb.arshad55@gmail.com', 'pass', 'male', NOW(), NOW())";
+$servername = "localhost";
+$username = "admin";
+$password = "_camelCase";
+$dbname = "tailor";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} else {
+    echo '<script type="text/javascript">',
+        'console.log("Connected!")',
+        '</script>';
+}
+$sql = "INSERT INTO user(fname, lname, email, password, gender, create_date, last_login) VALUES ('Haseeb', 'Arshad', 'haseeb.arshad55@gmail.com', 'pass', 'male', NOW(), NOW())";
 
-    if ($conn->query($sql) === TRUE) {
-        echo '<script type="text/javascript">',
-            'console.log("New record created successfully!")',
-            '</script>';
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+if ($conn->query($sql) === TRUE) {
+    echo '<script type="text/javascript">',
+        'console.log("New record created successfully!")',
+        '</script>';
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -242,7 +242,39 @@
         padding-left: 15px;
     }
 </style>
+<style>
+        #editor {
+            /* overflow: auto; */
+            background-color: white;
+            /* color: black; */
+        }
+        
+        #wrap {
+            margin-top: 50px;
+            margin-left: 50px;
+            /* padding: 10px; */
+            /* border: 1px grey solid; */
+        }
 
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table {
+            /* width: 100%; */
+        }
+
+
+    </style>
 <body>
 
     <nav class="navbar navbar-inverse" id="topnav">
@@ -283,11 +315,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    
+
                     <li onclick="loadDoc('admin-home.php')" class="activeX"><a href="javascript:void(0);">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-                    
+
                     <li onclick="loadDoc('admin-profile.php')"><a href="javascript:void(0);">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-                    
+
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Manage Users<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                         <ul class="dropdown-menu forAnimate" role="menu">
@@ -320,27 +352,110 @@
                     </li>
 
                     <li><a href="javascript:void(0);">Logout<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-log-out"></span></a></li>
-                
+
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="main" id="mainX">
 
+    <div class="main" id="mainX">
+        <div id="fetchedData">
+    
+        </div>
     </div>
+
+    <div id="wrap">
+        <div id="editor">
+            <div id="myT">
+                <table id="telem"></table>
+                <table id="tbdy"></table>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 <script>
     function loadDoc(data) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById('mainX').innerHTML = this.responseText;
-                // document.getElementsByClassName("main").innerHTML = this.responseText;
             }
         };
         xhttp.open("POST", data, true);
         xhttp.send();
     }
+
+    var returnedResponse;
+
+    function Response(response) {
+        returnedResponse = response;
+    }
+
+    Response.prototype.json = function() {
+        return JSON.parse(this.response);
+    };
+
+    function _fetch(url) {
+        return new Promise((resolve, reject) => {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 1) {
+                    console.log("OPENED");
+                } else if (this.readyState == 2) {
+                    console.log("HEADERS_RECEIVED");
+                } else if (this.readyState == 3) {
+                    console.log("LOADING");
+                } else if (this.readyState == 4 && this.status == 200) {
+                    console.log("DONE");
+                    resolve(xhttp.responseText);
+                }
+
+            };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+            xhttp.onerror = function() {
+                console.log(xhttp.error);
+                reject("LOL");
+            };
+        });
+    }
+
+    function showUsers() {
+        _fetch("showUsers.php")
+            .then(s => {
+                dataX = JSON.parse(s);
+                printJSON(dataX);
+            })
+            .catch(f => {
+                document.getElementById("mainX").innerHTML += f;
+            })
+    }
+
+    function printJSON(dataX) {
+        var start = 0;
+        var end = dataX.length;
+        var columns = Object.keys(dataX[0]).length;
+        var colNames = Object.keys(dataX[0]);
+        var inner = "";
+        document.getElementById('tbdy').innerHTML = inner;
+        inner += "<tr>";
+        for (var j = 0; j < columns; j++) {
+            inner += `<th style="background-color: gray; color: white;">` + colNames[j] + "</th>";
+        }
+        inner += "</tr>";
+        for (var i = start; i < end; i++) {
+            inner += "<tr>"
+            for (var j = 0; j < columns; j++) {
+                if (typeof (dataX[i]) == 'undefined') break;
+                inner += "<td>" + dataX[i][colNames[j]] + "</td>";
+            }
+            inner += "</tr>";
+        }
+        document.getElementById('tbdy').innerHTML = inner;
+    }
+
 </script>
 
 </html>
