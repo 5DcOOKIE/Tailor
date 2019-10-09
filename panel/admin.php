@@ -20,8 +20,11 @@ if ($conn->query($sql) === TRUE) {
         'console.log("New record created successfully!")',
         '</script>';
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+   // echo "Error: " . $sql . "<br>" . $conn->error;
 }
+//get ipaddress
+// $ip=$_SERVER['REMOTE_ADDR'];
+// echo "IP address= $ip";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,10 +88,10 @@ if ($conn->query($sql) === TRUE) {
 
     nav.sidebar,
     .main {
-        -webkit-transition: margin 200ms ease-out;
+        /* -webkit-transition: margin 200ms ease-out;
         -moz-transition: margin 200ms ease-out;
         -o-transition: margin 200ms ease-out;
-        transition: margin 200ms ease-out;
+        transition: margin 200ms ease-out; */
     }
 
     /* Add gap to nav and right windows.*/
@@ -116,15 +119,15 @@ if ($conn->query($sql) === TRUE) {
         /*Allow main to be next to Nav*/
         .main {
             position: absolute;
-            width: calc(100% - 40px);
+            /* width: calc(100% - 40px); */
             /*keeps 100% minus nav size*/
-            margin-left: 40px;
+            margin-left: 200px;
             float: right;
         }
 
         /*lets nav bar to be showed on mouseover*/
         nav.sidebar:hover+.main {
-            margin-left: 200px;
+            /* margin-left: 200px; */
         }
 
         /*Center Brand*/
@@ -244,16 +247,17 @@ if ($conn->query($sql) === TRUE) {
 </style>
 <style>
         #editor {
-            /* overflow: auto; */
+            overflow: auto;
             background-color: white;
             /* color: black; */
         }
         
         #wrap {
             margin-top: 50px;
-            margin-left: 50px;
-            /* padding: 10px; */
-            /* border: 1px grey solid; */
+            margin-left: 350px;
+            width: 50%; 
+            padding: 10px;
+            border: 1px grey solid;
         }
 
         table,
@@ -270,7 +274,7 @@ if ($conn->query($sql) === TRUE) {
         }
 
         table {
-            /* width: 100%; */
+            /* width: 100%;  */
         }
 
 
@@ -321,24 +325,29 @@ if ($conn->query($sql) === TRUE) {
                     <li onclick="loadDoc('admin-profile.php')"><a href="javascript:void(0);">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
 
                     <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Manage Users<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" onclick="loadDoc('manage-user/manage-user-main.php')">Manage Users<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                         <ul class="dropdown-menu forAnimate" role="menu">
-                            <li><a href="javascript:void(0);">Add User</a></li>
+                            <li onclick="loadDoc('manage-user/manage-user-add.php')"><a href="javascript:void(0);">Add User</a></li>
                             <li class="divider"></li>
-                            <li><a href="javascript:void(0);">Delete User</a></li>
+                            <li onclick="loadDoc('manage-user/manage-user-remove.php')"><a href="javascript:void(0);">Delete User</a></li>
                             <li class="divider"></li>
-                            <li><a href="javascript:void(0);">Update User</a></li>
+                            <li onclick="loadDoc('manage-user/manage-user-update.php')"><a href="javascript:void(0);">Update User</a></li>
+                            <li class="divider"></li>
+                            <li onclick="loadDoc('manage-user/manage-user-view.php')"><a href="javascript:void(0);">View User</a></li>
+
                         </ul>
                     </li>
 
                     <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Manage Orders<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" onclick="loadDoc('manage-order/manage-order-main.php')">Manage Orders<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
                         <ul class="dropdown-menu forAnimate" role="menu">
-                            <li><a href="javascript:void(0);">Add Order</a></li>
+                            <li onclick="loadDoc('manage-order/manage-order-add.php')"><a href="javascript:void(0);">Add Order</a></li>
                             <li class="divider"></li>
-                            <li><a href="javascript:void(0);">Delete Order</a></li>
+                            <li onclick="loadDoc('manage-order/manage-order-remove.php')"><a href="javascript:void(0);">Delete Order</a></li>
                             <li class="divider"></li>
-                            <li><a href="javascript:void(0);">Update Order</a></li>
+                            <li onclick="loadDoc('manage-order/manage-order-update.php')"><a href="javascript:void(0);">Update Order</a></li>
+                            <li class="divider"></li>
+                            <li onclick="loadDoc('manage-order/manage-order-view.php')"><a href="javascript:void(0);">View Order</a></li>
                         </ul>
                     </li>
 
@@ -359,19 +368,17 @@ if ($conn->query($sql) === TRUE) {
     </nav>
 
     <div class="main" id="mainX">
-        <div id="fetchedData">
-    
+        <div id="myT" >
+            <table id="telem"></table>
+            <table id="tbdy"></table>
         </div>
     </div>
 
-    <div id="wrap">
-        <div id="editor">
-            <div id="myT">
-                <table id="telem"></table>
-                <table id="tbdy"></table>
-            </div>
-        </div>
-    </div>
+    <!-- <div id="wrap" > -->
+        <!-- <div id="editor"> -->
+            
+        <!-- </div> -->
+    <!-- </div> -->
 
 </body>
 
@@ -429,7 +436,7 @@ if ($conn->query($sql) === TRUE) {
                 printJSON(dataX);
             })
             .catch(f => {
-                document.getElementById("mainX").innerHTML += f;
+                document.getElementById("mainX").innerHTML += f + "LOL";
             })
     }
 
